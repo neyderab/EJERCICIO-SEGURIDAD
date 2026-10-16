@@ -55,11 +55,11 @@ int main() {
         cout << "Reglas cumplidas: " << puntos << " de 4" << endl;
 
         if (puntos <= 2) {
-            cout << "Nivel de seguridad: DEBIL como TU" << endl;
+            cout << "Nivel de seguridad: muy DEBIL como TU" << endl;
         } else if (puntos == 3) {
-            cout << "Nivel de seguridad: MEDIA pero de aguardiente" << endl;
+            cout << "Nivel de seguridad: esta como MEDIA pero de aguardiente" << endl;
         } else {
-            cout << "Nivel de seguridad: FUERTE como ilegitimo estado de ISRAEL" << endl;
+            cout << "Nivel de seguridad: MUY FUERTE como ilegitimo estado de ISRAEL" << endl;
         }
 
         cout << "\nDeseas evaluar otra contrasena? (s/n): ";
