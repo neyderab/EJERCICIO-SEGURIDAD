@@ -6,54 +6,68 @@ using namespace std;
 int main() {
     string nombre;
     string clave;
-    int puntos = 0;
+    char continuar;
+    int puntos;
 
-    bool longitudCorrecta = false;
-    bool tieneMayuscula = false;
-    bool tieneDigito = false;
-    bool tieneSimbolo = false;
+    do {
+        puntos = 0;
 
-    cout << "SISTEMA DE SEGURIDAD" << endl;
-    cout << "Ingrese tu nombre: ";
-    cin >> nombre;
-    cout << "Ingresa una contraseña: ";
-    cin >> clave;
+        bool longitudCorrecta = false;
+        bool tieneMayuscula = false;
+        bool tieneDigito = false;
+        bool tieneSimbolo = false;
 
-    if (clave.length() >= 8) {
-        longitudCorrecta = true;
-    }
+        cout << "\n SISTEMA DE SEGURIDAD" << endl;
+        cout << "Ingrese tu nombre: ";
+        cin >> nombre;
 
-    for (int posicion = 0; posicion < clave.length(); posicion++) {
-        char letra = clave[posicion];
+        cout << "Ingresa una contrasena: ";
+        cin >> clave;
 
-        if (letra >= 'A' && letra <= 'Z') {
-            tieneMayuscula = true;
+        if (clave.length() >= 8) {
+            longitudCorrecta = true;
         }
 
-        if (letra >= '0' && letra <= '9') {
-            tieneDigito = true;
+        for (int i = 0; i < clave.length(); i++) {
+            char caracter = clave[i];
+
+            if (caracter >= 'A' && caracter <= 'Z') {
+                tieneMayuscula = true;
+            }
+
+            if (caracter >= '0' && caracter <= '9') {
+                tieneDigito = true;
+            }
+
+            if (caracter == '!' || caracter == '@' ||
+                caracter == '#' || caracter == '$' ||
+                caracter == '%' || caracter == '&' ||
+                caracter == '*') {
+                tieneSimbolo = true;
+            }
         }
 
-        if (letra == '!' || letra == '@' || letra == '#' ||
-            letra == '$' || letra == '%' || letra == '&' ||
-            letra == '*') {
-            tieneSimbolo = true;
+        puntos = longitudCorrecta + tieneMayuscula
+               + tieneDigito + tieneSimbolo;
+
+        cout << "\nRESULTADO DEL ANALISIS" << endl;
+        cout << "Usuario: " << nombre << endl;
+        cout << "Reglas cumplidas: " << puntos << " de 4" << endl;
+
+        if (puntos <= 2) {
+            cout << "Nivel de seguridad: DEBIL como TU" << endl;
+        } else if (puntos == 3) {
+            cout << "Nivel de seguridad: MEDIA pero de aguardiente" << endl;
+        } else {
+            cout << "Nivel de seguridad: FUERTE como ilegitimo estado de ISRAEL" << endl;
         }
-    }
 
-    puntos = longitudCorrecta + tieneMayuscula
-           + tieneDigito + tieneSimbolo;
+        cout << "\nDeseas evaluar otra contrasena? (s/n): ";
+        cin >> continuar;
 
-    cout << "\nRESULTADO DEL ANALISIS" << endl;
-    cout << "Reglas cumplidas: " << puntos << " de 4" << endl;
+    } while (continuar == 's' || continuar == 'S');
 
-    if (puntos <= 2) {
-        cout << "Nivel de seguridad: DEBIL como TU" << endl;
-    } else if (puntos == 3) {
-        cout << "Nivel de seguridad: MEDIA pero de aguardiente" << endl;
-    } else {
-        cout << "Nivel de seguridad: FUERTE como ilegitimo estado de ISRAEL" << endl;
-    }
+    cout << "\nSistema cerrado. Hasta luego!" << endl;
 
     return 0;
 }
