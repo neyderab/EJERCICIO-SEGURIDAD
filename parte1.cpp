@@ -59,7 +59,7 @@ int main() {
         } else if (puntos == 3) {
             cout << "Nivel de seguridad: esta como MEDIA pero de aguardiente" << endl;
         } else {
-            cout << "Nivel de seguridad: MUY FUERTE como ilegitimo estado de ISRAEL" << endl;
+            cout << "Nivel de seguridad: MUY FUERTE como el ilegitimo estado de ISRAEL" << endl;
         }
 
         cout << "\nDeseas evaluar otra contrasena? (s/n): ";
